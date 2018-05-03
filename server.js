@@ -36,4 +36,3 @@ app.get('*',function(req,res){
 });
 
 app.listen(8080);
-//http.createServer(requestHandler).listen(8080);
