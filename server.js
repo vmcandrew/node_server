@@ -45,6 +45,7 @@ function requestHandler(req, res) {
 	 let fileName = path.basename(req.url) || 'index.html'
 	 let localFolder = __dirname + '/public/';
 	 let page404 = localFolder + '404.html';
+	 let ext = path.extname(fileName)
 
 	 if(!extensions[ext]){
 	 	res.writeHead(404, {'Content-Type': 'text/html'});
