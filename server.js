@@ -23,6 +23,10 @@ app.get('/', function(req, res){
 	res.sendfile('index.html');
 });
 
+app.get('/about', function(req, res){
+	res.sendfile(__dirname + '/public/about.html');
+});
+
 app.get('/test',function(req,res){
 	res.send(res.json(extensions));
 });
