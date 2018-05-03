@@ -9,14 +9,14 @@ let t1="test";
 const app = express();
 app.use(express.static(path.join(__dirname,'public')));
 
-extensions = {
+extensions = [{
 	".html" : "text/html",
 	".css" : "text/css",
 	".js" : "application/javascript",
 	".png" : "image/png",
 	".gif" : "image/gif",
 	".jpg" : "image/jpeg"
-};
+}];
 
 
 app.get('/', function(req, res){

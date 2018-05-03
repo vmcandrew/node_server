@@ -6,7 +6,13 @@ $(document).ready(function() {
 
 function getdata(){
 	$.get(url,function(data,status){
-		console.log(data[".html"]);
+		for(var key in data){
+			if (data.hasOwnProperty(key)){
+
+			console.log(data[key][".html"]);
+			}
+		}
+		console.log(data[0]);
 	});
 };
 
