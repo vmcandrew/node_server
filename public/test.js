@@ -6,7 +6,7 @@ $(document).ready(function() {
 
 function getdata(){
 	$.get(url,function(data,status){
-		for(var key in data){
+		for(let key in data){
 			if (data.hasOwnProperty(key)){
 
 			console.log(data[key][".html"]);
@@ -17,5 +17,3 @@ function getdata(){
 };
 
 const url = '/test';
-
-
