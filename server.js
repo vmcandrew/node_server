@@ -8,6 +8,7 @@ let t1="test"; //test data recieved via GET request
 
 const app = express();
 app.use(express.static(path.join(__dirname,'public')));
+//app.use(require('stylus').middleware(__dirname + '/public'));
 //can probably be removed
 
 extensions = [{
@@ -21,12 +22,12 @@ extensions = [{
 //extensions for encoding
 
 app.get('/', function(req, res){
-	res.sendfile('index.html');
+	res.sendFile('index.html');
 });
 //serves home page
 
 app.get('/about', function(req, res){
-	res.sendfile(__dirname + '/public/about.html');
+	res.sendFile(__dirname + '/public/about.html');
 });
 
 //loads about page
@@ -37,9 +38,15 @@ app.get('/test',function(req,res){
 
 //sends json data when test sub dir is visited or called via GET request
 
-app.get('*',function(req,res){
-	res.sendfile(__dirname + '/public/404.html');
+app.use(function(req,res,next){
+
+	res.status(404).sendFile(__dirname+'/public/404.html');
 });
+
+app.use(function (err, req, res, next) {
+  console.error(err.stack)
+  res.status(500).sendFile(__dirname+'/public/500.html');
+})
 
 //404 if page doesnt exist
 
